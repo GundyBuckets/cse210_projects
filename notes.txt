@@ -1,0 +1,6 @@
+To make a new directory
+    dotnet new console -o 'name of directory' --use-program-main
+
+To build/run a program 
+    dotnet build (In the directory)
+    dotnet run
