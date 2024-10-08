@@ -1,7 +1,11 @@
 using System;
 using System.IO;
 
-// Main program that runs the journal application
+// I used w3 schools a lot as a reference
+
+// To go beyond the core requirements, I wrote SaveFile() to also clear the currently existing entries
+// in order to clear up memory while to program is running. I also added lines telling the user when the 
+// program is saving and loading the entries.
 class Program
 {
     static void Main(string[] args)
@@ -41,16 +45,19 @@ class Program
             else if (option == 3)
             {
                 // Option 3: Load journal entries from a file named "Journal.txt"
-                journal.LoadFile("Journal.txt");
+                journal._entries = journal.LoadFile("Journal.txt");
+                Console.WriteLine("Loading files to be displayed...");
             }
             else if (option == 4)
             {
                 // Option 4: Save current journal entries to a file named "Journal.txt"
                 journal.SaveFile(journal._entries, "Journal.txt");
+                Console.WriteLine("Saving entries and clearing cache...");
             }
             else if (option == 5)
             {
                 // Option 5: Quit the program by setting the running flag to 0
+                Console.WriteLine("You are now leaving the program, have a nice day!");
                 running = 0;
             }
         }
