@@ -30,8 +30,4 @@ class Word {
             return false;
         }
     }
-
-    public bool GetIsHidden() {
-        return _isHidden;
-    }
 }
