@@ -5,6 +5,15 @@ class SimpleGoal : Goal {
         _complete = false;
     }
 
+    public SimpleGoal(int p, string n, string d, bool c) : base(p, n, d, "SimpleGoal") {
+        _complete = c;
+    }
+
+    public override string GetSaveFormat()
+    {
+        return base.GetSaveFormat() + $":{_complete}";
+    }
+
     public override void RecordEvent() {
         _complete = true;
     }

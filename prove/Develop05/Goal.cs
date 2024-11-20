@@ -11,9 +11,11 @@ class Goal {
         _type = t;
     }
 
-    public virtual void RecordEvent() {
-        
+    public virtual string GetSaveFormat() {
+        return $"{_type}:{_name}:{_description}:{_points}";
     }
+
+    public virtual void RecordEvent() {}
 
     public virtual bool IsComplete() {
         return false;
