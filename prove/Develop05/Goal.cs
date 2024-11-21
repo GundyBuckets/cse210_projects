@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 class Goal {
     private int _points;
     private string _name;
@@ -16,6 +18,10 @@ class Goal {
     }
 
     public virtual void RecordEvent() {}
+
+    public virtual string GetDisplayFormat() {
+        return "Invalid, something went wrong";
+    }
 
     public virtual bool IsComplete() {
         return false;
