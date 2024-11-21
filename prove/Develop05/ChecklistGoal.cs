@@ -17,6 +17,15 @@ class ChecklistGoal : Goal {
         _bonus = b;
     }
 
+    public override string GetDisplayFormat() {
+        if (IsComplete()) {
+            return $"[X] {base.GetDisplayFormat()} -- Currently completed: {_timesCompleted}/{_toComplete}";
+        }
+        else {
+            return $"[ ] {base.GetDisplayFormat()} -- Currently completed: {_timesCompleted}/{_toComplete}";
+        }
+    }
+
     public override string GetSaveFormat()
     {
         // Will return

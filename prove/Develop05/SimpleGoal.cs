@@ -9,6 +9,16 @@ class SimpleGoal : Goal {
         _complete = c;
     }
 
+    public override string GetDisplayFormat()
+    {
+        if (_complete) {
+            return $"[X] {base.GetDisplayFormat()}";
+        }
+        else {
+            return $"[ ] {base.GetDisplayFormat()}";
+        }
+    }
+
     public override string GetSaveFormat()
     {
         return base.GetSaveFormat() + $":{_complete}";

@@ -58,6 +58,13 @@ class Program
                 }
                 Console.WriteLine();
             }
+            else if (choice == "2") {
+                int i = 1;
+                foreach (Goal goal in goalList) {
+                    Console.WriteLine($"{i}. {goal.GetDisplayFormat()}");
+                }
+                Console.WriteLine();
+            }
             else if (choice == "3") {
                 Console.Write("What is the filename for the goal file? ");
                 string fileName = Console.ReadLine();

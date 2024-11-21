@@ -20,7 +20,7 @@ class Goal {
     public virtual void RecordEvent() {}
 
     public virtual string GetDisplayFormat() {
-        return "Invalid, something went wrong";
+        return $"{_name}: ({_description})";
     }
 
     public virtual bool IsComplete() {
