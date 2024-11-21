@@ -24,7 +24,16 @@ class GoalManager {
             string[] parts = line.Split(":");
 
             if (parts[0] == "SimpleGoal") {
-                goals.Add(new SimpleGoal(int.Parse(parts[3]), parts[1], parts[2], bool.Parse(parts[4]));
+                goals.Add(new SimpleGoal(int.Parse(parts[3]), parts[1], parts[2], bool.Parse(parts[4])));
+            }
+            if (parts[0] == "EternalGoal") {
+                goals.Add(new EternalGoal(int.Parse(parts[3]), parts[1], parts[2]));
+            }
+            if (parts[0] == "ChecklistGoal") {
+                goals.Add(new ChecklistGoal(int.Parse(parts[5]), int.Parse(parts[4]), int.Parse(parts[3]), parts[1], parts[2], int.Parse(parts[6])));
+            }
+            else {
+                _totalPoints = int.Parse(parts[0]);
             }
         }
 

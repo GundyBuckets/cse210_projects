@@ -11,8 +11,16 @@ class ChecklistGoal : Goal {
         _bonus = b;
     }
 
+    public ChecklistGoal(int to, int b, int p, string n, string d, int completed) : base (p, n, d, "ChecklistGoal") {
+        _toComplete = to;
+        _timesCompleted = completed;
+        _bonus = b;
+    }
+
     public override string GetSaveFormat()
     {
+        // Will return
+        // type:name:description:points:bonus:toComplete:timesCompleted
         return base.GetSaveFormat() + $":{_bonus}:{_toComplete}:{_timesCompleted}";
     }
 
