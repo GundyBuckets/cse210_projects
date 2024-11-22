@@ -33,9 +33,15 @@ class ChecklistGoal : Goal {
         return base.GetSaveFormat() + $":{_bonus}:{_toComplete}:{_timesCompleted}";
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
     {
         _timesCompleted++;
+        if (!IsComplete()) {
+            return base.RecordEvent();
+        }
+        else {
+            return _bonus + base.RecordEvent();
+        }
     }
 
     public override bool IsComplete()

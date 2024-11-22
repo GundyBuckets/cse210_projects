@@ -11,7 +11,7 @@ class Program
         GoalManager manager = new();
 
         while (running) {
-            Console.WriteLine($"You have {manager.GetPoints()} points.\n");
+            Console.WriteLine($"You have {manager.GetTotalPoints()} points.\n");
 
             Console.WriteLine("Menu Options:");
             Console.WriteLine("  1. Create New Goal");
@@ -62,6 +62,7 @@ class Program
                 int i = 1;
                 foreach (Goal goal in goalList) {
                     Console.WriteLine($"{i}. {goal.GetDisplayFormat()}");
+                    i++;
                 }
                 Console.WriteLine();
             }
@@ -80,6 +81,23 @@ class Program
 
                 goalList.Clear();
                 goalList = manager.Load(fileName);
+            }
+            else if (choice == "5") {
+                List<Goal> tempGoals = new();
+                int i = 1;
+                foreach (Goal goal in goalList) {
+                    if (!goal.IsComplete()) {
+                        tempGoals.Add(goal);
+                        Console.WriteLine($"{i}. {goal.GetName()}");
+                        i++;
+                    }
+                }
+                Console.Write("Which goal did you accomplish? ");
+                int accomplish = int.Parse(Console.ReadLine());
+                int pointsEarned = tempGoals[accomplish - 1].RecordEvent();
+                Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+                manager.AddPoints(pointsEarned);
+                Console.WriteLine($"You now have {manager.GetTotalPoints()} points.\n");
             }
             else if (choice == "6") {
                 running = false;

@@ -4,8 +4,12 @@ using System.IO;
 class GoalManager {
     private int _totalPoints;
 
-    public int GetPoints() {
+    public int GetTotalPoints() {
         return _totalPoints;
+    }
+
+    public void AddPoints(int points) {
+        _totalPoints += points;
     }
 
     public void Save(List<Goal> goals, string fileName) {
@@ -15,6 +19,7 @@ class GoalManager {
                 outputFile.WriteLine(goal.GetSaveFormat());
             }
         }
+        _totalPoints = 0;
     }
 
     public List<Goal> Load(string fileName) {

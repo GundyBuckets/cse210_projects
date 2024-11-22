@@ -24,8 +24,9 @@ class SimpleGoal : Goal {
         return base.GetSaveFormat() + $":{_complete}";
     }
 
-    public override void RecordEvent() {
+    public override int RecordEvent() {
         _complete = true;
+        return base.RecordEvent();
     }
 
     public override bool IsComplete() {

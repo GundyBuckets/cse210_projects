@@ -17,7 +17,9 @@ class Goal {
         return $"{_type}:{_name}:{_description}:{_points}";
     }
 
-    public virtual void RecordEvent() {}
+    public virtual int RecordEvent() {
+        return _points;
+    }
 
     public virtual string GetDisplayFormat() {
         return $"{_name}: ({_description})";
@@ -29,5 +31,9 @@ class Goal {
 
     public virtual int GetPoints() {
         return _points;
+    }
+
+    public string GetName() {
+        return _name;
     }
 }
